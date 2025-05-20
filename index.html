@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Headway Beginner Units 7–10 Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { margin-top: 40px; }
+    .question { margin-bottom: 20px; }
+    .question p { font-weight: bold; }
+    .result { margin-top: 20px; font-weight: bold; }
+    button { margin-top: 20px; padding: 10px 20px; }
+  </style>
+</head>
+<body>
+  <h1>Headway Beginner: Units 7–10 Quiz</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. What is your favorite food?</p>
+      <label><input type="radio" name="q1" value="a"> a) Apple</label><br>
+      <label><input type="radio" name="q1" value="b"> b) Chair</label><br>
+      <label><input type="radio" name="q1" value="c"> c) Tuesday</label><br>
+      <label><input type="radio" name="q1" value="d"> d) Blue</label>
+    </div>
+
+    <div class="question">
+      <p>2. What does "favorite" mean?</p>
+      <label><input type="radio" name="q2" value="a"> a) Most liked</label><br>
+      <label><input type="radio" name="q2" value="b"> b) Most difficult</label><br>
+      <label><input type="radio" name="q2" value="c"> c) Least important</label><br>
+      <label><input type="radio" name="q2" value="d"> d) Very late</label>
+    </div>
+
+    <!-- Add more questions similarly -->
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+    <div class="result" id="result"></div>
+  </form>
+
+  <script>
+    const correctAnswers = {
+      q1: "a",
+      q2: "a",
+      // Add remaining correct answers here
+    };
+
+    function checkAnswers() {
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+      for (let key in correctAnswers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === correctAnswers[key]) {
+          score++;
+        }
+      }
+      document.getElementById("result").innerText = `You scored ${score} out of ${total}`;
+    }
+  </script>
+</body>
+</html>
